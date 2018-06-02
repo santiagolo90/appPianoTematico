@@ -1,0 +1,133 @@
+<!-- <ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Piano temático</ion-title>
+  </ion-navbar>
+  <ion-navbar color="primary">
+    <ion-row>
+    <label style="margin: auto; margin-left: 10px; font-size: 25px;">Tematica</label>
+      <ion-select style="background-color: white; padding: 5px 5px 5px 10px; margin: 10px 10px 10px 10px;" [(ngModel)]="tematica">
+        <ion-option value="autos">Autos</ion-option>
+        <ion-option value="animales">Animales</ion-option>
+        <ion-option value="frases">Frases</ion-option>
+      </ion-select>
+    </ion-row>
+    </ion-navbar>
+</ion-header> -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+
+
+<ion-content class="contenedor">
+  <!-- <button id="tecla" [ngClass]="{'tecla1autos': tematica == 'autos', 'tecla1animales': tematica == 'animales', 'tecla1frases': tematica == 'frases'}" ion-button danger block (click)="tecla1()"></button>
+  <button id="tecla" [ngClass]="{'tecla2autos': tematica == 'autos', 'tecla2animales': tematica == 'animales', 'tecla2frases': tematica == 'frases'}" ion-button danger block (click)="tecla2()"></button>
+  <button id="tecla" [ngClass]="{'tecla3autos': tematica == 'autos', 'tecla3animales': tematica == 'animales', 'tecla3frases': tematica == 'frases'}" ion-button danger block (click)="tecla3()"></button> -->
+  <!-- <button id="tecla" [ngClass]="{'tecla4autos': tematica == 'autos', 'tecla4animales': tematica == 'animales', 'tecla4frases': tematica == 'frases'}" ion-button danger block (click)="tecla4()"></button>
+  <button id="tecla" [ngClass]="{'tecla5autos': tematica == 'autos', 'tecla5animales': tematica == 'animales', 'tecla5frases': tematica == 'frases'}" ion-button danger block (click)="tecla5()"></button> -->
+  <!-- <button id="tecla" class="microfono" ion-button danger block (click)="startRecording()"></button>
+  <button id="tecla" class="play" ion-button danger block (click)="play()"></button> -->
+  <!-- <div padding text-center>
+    <button ion-button color="danger" padding text-center (click)="confirmarCerrarSesion()">Cerrar sesión <ion-icon name="log-out"> </ion-icon></button>
+  </div> -->
+<!-- 
+  <ion-fab right bottom>
+      <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+      <button button button-positive ion-button color="danger" class="desloguear" (click)="confirmarCerrarSesion()"> <ion-icon name="log-out"> </ion-icon></button>    
+  </ion-fab> -->
+
+
+
+
+  <!-- <div class="contenedor">
+    <button class="botonF1" (click)="b()">
+      <span>+</span> -->
+
+      <!-- <button class="botonF6" (click)="confirmarCerrarSesion()"> <ion-icon name="log-out"> </ion-icon></button> 
+      <ion-select class="botonF1" id="botonF1" [(ngModel)]="tematica">
+          <ion-option style="display:none" value="autos">Autos</ion-option>
+          <ion-option style="display:none" value="animales">Animales</ion-option>
+          <ion-option style="display:none" value="frases">F rases</ion-option>     
+        </ion-select> -->
+        <div *ngIf="reproductor === true" class="btnTodos">
+          <div *ngIf="animales == true">
+              <button id="btn1" [disabled]="apagarbotones ==true" class="btnAnimal" (click)="hacerSonar('cuervo')" ><img src="assets/sonidos/cuervo.png" ></button>
+              <button id="btn2" [disabled]="apagarbotones ==true" class="btnAnimal" (click)="hacerSonar('delfin')"><img src="assets/sonidos/delfin.png"  ></button>
+              <button id="btn3" [disabled]="apagarbotones ==true" class="btnAnimal" (click)="hacerSonar('grillo')" ><img src="assets/sonidos/grillo.png"  ></button>
+              <button id="btn4" [disabled]="apagarbotones ==true"class="btnAnimal" (click)="hacerSonar('pavo')" ><img src="assets/sonidos/pavo.png"  ></button>
+              <button id="btn5" [disabled]="apagarbotones ==true" class="btnAnimal" (click)="hacerSonar('lechuza')" ><img src="assets/sonidos/lechuza.png"  ></button>
+          </div>
+          <div *ngIf="juegos == true">
+              <button id="btn6" [disabled]="apagarbotones ==true" class="btnJuegos" (click)="hacerSonar('mario')" ><img src="assets/sonidos/mario.png" ></button>
+              <button id="btn7" [disabled]="apagarbotones ==true" class="btnJuegos" (click)="hacerSonar('sonic')"  ><img src="assets/sonidos/sonic.png"  ></button>
+              <button id="btn8" [disabled]="apagarbotones ==true" class="btnJuegos" (click)="hacerSonar('donkey')" ><img src="assets/sonidos/donkey.png"  ></button>
+              <button id="btn9" [disabled]="apagarbotones ==true" class="btnJuegos" (click)="hacerSonar('pacman')" ><img src="assets/sonidos/pacman.png"  ></button>
+              <button id="btn10" [disabled]="apagarbotones ==true" class="btnJuegos" (click)="hacerSonar('bomberman')" ><img src="assets/sonidos/bomberman.png"  ></button>
+          </div>
+          <div *ngIf="peliculas == true">
+              <button id="btn11" [disabled]="apagarbotones ==true" class="btnPeliculas" (click)="hacerSonar('terminator')" ><img src="assets/sonidos/terminator.png" ></button>
+              <button id="btn12" [disabled]="apagarbotones ==true" class="btnPeliculas"  (click)="hacerSonar('psicosis')" ><img src="assets/sonidos/psicosis.png"  ></button>
+              <button id="btn13" [disabled]="apagarbotones ==true" class="btnPeliculas"  (click)="hacerSonar('freddy')" ><img src="assets/sonidos/freddy.png"  ></button>
+              <button id="btn14" [disabled]="apagarbotones ==true" class="btnPeliculas"  (click)="hacerSonar('depredador')" ><img src="assets/sonidos/depredador.png"  ></button>
+              <button id="btn15" [disabled]="apagarbotones ==true" class="btnPeliculas"  (click)="hacerSonar('dracula')" ><img src="assets/sonidos/dracula.png"  ></button>
+          </div>
+          <div *ngIf="simpsons == true">
+            <button id="btn16" [disabled]="apagarbotones ==true" class="btnSimpsons" (click)="hacerSonar('apu')" ><img src="assets/sonidos/apu.png" ></button>
+            <button id="btn17" [disabled]="apagarbotones ==true" class="btnSimpsons"  (click)="hacerSonar('bart')" ><img src="assets/sonidos/bart.png"  ></button>
+            <button id="btn18" [disabled]="apagarbotones ==true" class="btnSimpsons"  (click)="hacerSonar('homero')" ><img src="assets/sonidos/homero.png"  ></button>
+            <button id="btn19" [disabled]="apagarbotones ==true" class="btnSimpsons"  (click)="hacerSonar('nelson')" ><img src="assets/sonidos/nelson.png"  ></button>
+            <button id="btn20" [disabled]="apagarbotones ==true" class="btnSimpsons"  (click)="hacerSonar('duffman')" ><img src="assets/sonidos/duffman.png"  ></button>
+          </div>
+        </div>
+        
+        <div *ngIf="reproductor === false" class="btnTodos" padding text-center>
+            <img style="max-width: 100%;" src="assets/img/repro.gif"  >
+            <br>
+            <img style="max-width: 100%;" src="assets/img/spiner2.gif"  >
+            <br>
+            <br>
+
+
+            <button  class="btnStop" ion-button block large icon-left  color="lindas" (click)="stopTodo()">
+                <ion-icon name="square"></ion-icon> Interrumpir
+            </button>
+
+        </div>
+        
+        <ion-fab left bottom>
+            <button (click)="cerrarSesion()" ion-fab color="danger"><i class="fas fa-sign-out-alt fa-2x"></i></button>
+          </ion-fab>
+          <!-- <ion-fab class="btnPlay" center bottom>
+            <button  ion-fab color="secondary"><i class="fas fa-play fa-2x"></i></button>
+          </ion-fab> -->
+          <div *ngIf="mostrarPlay == true" text-center>
+            <button (click)="reproducir()" class="btnPlay"   ><img src="assets/img/play2.png"  ></button>
+          </div>
+
+
+
+          <!-- <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div *ngIf="mostrarStop == true" text-center>
+                  <button (click)="stopTodo()" class="btnPlay"   ><img src="assets/img/stop.png"  ></button>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div *ngIf="mostrarSpiner == true" text-center>
+                  <button  class="btnPlay"   ><img src="assets/img/spiner2.gif"  ></button>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid> -->
+          
+          <ion-fab right bottom>
+              <button ion-fab color="light"><ion-icon name="arrow-dropup"></ion-icon><i class="fas fa-music"></i></button>
+              <ion-fab-list side="top">
+                <button ion-fab (click)="vistaJuego()" > <i class="fas fa-gamepad fa-2x"></i></button>
+                <button ion-fab (click)="vistaPeli()" ><i class="fas fa-film fa-2x"></i></button>
+                <button ion-fab (click)="vistaAnimal()" ><i class="fas fa-crow fa-2x"></i></button>
+                <button ion-fab (click)="vistaSimpsons()" ><img src="assets/sonidos/dona.png" ></button>
+              </ion-fab-list>
+            </ion-fab>
+           
+
+</ion-content>
