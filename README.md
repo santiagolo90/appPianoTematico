@@ -1,2 +1,2 @@
 # appPianoTematico
-appPianoTemático
+Piano tematico con IONIC 3
